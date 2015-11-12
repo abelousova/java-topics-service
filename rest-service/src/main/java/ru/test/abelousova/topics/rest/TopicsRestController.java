@@ -5,12 +5,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.test.abelousova.topics.model.api.Stats;
+import ru.test.abelousova.topics.model.api.JsonStats;
 import ru.test.abelousova.topics.model.api.Topic;
 import ru.test.abelousova.topics.model.api.TopicsService;
 import ru.test.abelousova.topics.model.exceptions.NotFoundException;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +41,7 @@ public class TopicsRestController {
     }
 
     @RequestMapping(value = "/{name}/stats", method = GET)
-    Stats getStats(@PathVariable String name) {
+    JsonStats getStats(@PathVariable String name) {
         if (!topicsService.topicExists(name)) {
             throw new NotFoundException("Topic not found");
         }
@@ -69,7 +70,8 @@ public class TopicsRestController {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody String handleException(HttpServletRequest req, Exception ex) {
-        log.error("Exception caught", ex);
+        log.error("Exception caught. Request method: " + req.getMethod() +
+                ". Request URL: " + req.getRequestURL() + ". Exception: ", ex);
         return "Exception " + ex;
     }
 }

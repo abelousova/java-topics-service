@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
-import ru.test.abelousova.topics.model.api.Stats;
+import ru.test.abelousova.topics.model.api.JsonStats;
 import ru.test.abelousova.topics.model.impl.RecordImpl;
 
 import javax.annotation.Resource;
@@ -59,7 +59,7 @@ public class RecordImplTest {
 
     @Test
     public void testGetStats() {
-        Stats stats = record.getStats();
+        JsonStats stats = record.getStats();
         Assert.assertEquals(BigInteger.valueOf(8037243L), stats.getSum());
         Assert.assertEquals(7986453L, stats.getMax());
         Assert.assertEquals(2045L, stats.getMin());

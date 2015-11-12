@@ -4,6 +4,5 @@ import java.util.Map;
 
 public interface Record {
     public Map<Integer, Long> getPartitions();
-
-    public Stats getStats();
+    public JsonStats getStats();
 }

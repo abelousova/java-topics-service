@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigInteger;
 
-public class Stats {
+public class JsonStats {
     @JsonProperty
     private BigInteger sum;
 
@@ -17,7 +17,7 @@ public class Stats {
     @JsonProperty
     private double average;
 
-    public Stats(BigInteger sum, long max, long min, double average) {
+    public JsonStats(BigInteger sum, long max, long min, double average) {
         this.sum = sum;
         this.max = max;
         this.min = min;

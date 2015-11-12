@@ -3,9 +3,8 @@ package ru.test.abelousova.topics.model.impl;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.springframework.context.annotation.Bean;
 import ru.test.abelousova.topics.model.api.Record;
-import ru.test.abelousova.topics.model.api.Stats;
+import ru.test.abelousova.topics.model.api.JsonStats;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,12 +39,12 @@ public class RecordImpl implements Record {
         return Collections.unmodifiableMap(partitions);
     }
 
-    public Stats getStats() {
+    public JsonStats getStats() {
         if (partitions.isEmpty()) {
             throw new IllegalStateException("Empty partitions, can't get stats");
         }
         BigInteger sum = getSum();
-        return new Stats(sum, getMax(), getMin(), getAverage(sum));
+        return new JsonStats(sum, getMax(), getMin(), getAverage(sum));
     }
 
     private BigInteger getSum() {
