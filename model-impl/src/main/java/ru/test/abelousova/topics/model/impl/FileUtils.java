@@ -26,7 +26,7 @@ public class FileUtils {
             try {
                 dates.add(dateFormat.parse(dir));
             } catch(ParseException e) {
-                log.warn("Illegal time format, dir: " + dir);
+                log.warn("Illegal date format, dir: " + dir);
             }
         }
 

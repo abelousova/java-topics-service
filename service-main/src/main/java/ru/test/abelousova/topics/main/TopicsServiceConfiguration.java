@@ -12,7 +12,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @EnableAutoConfiguration
 @ComponentScan("ru.test.abelousova.topics")
 @PropertySource(value = "classpath:application.properties", ignoreResourceNotFound = true)
-@PropertySource(value = "file:topicservice.properties", ignoreResourceNotFound = true)
+@PropertySource(value = "classpath:topicservice.properties", ignoreResourceNotFound = true)
 public class TopicsServiceConfiguration {
     @Bean
     public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {

@@ -33,7 +33,7 @@ public class TopicImpl implements Topic {
         return dateFormat.format(lastTimestamp);
     }
 
-    public RecordImpl getLastRecord() {
-        return new RecordImpl(getLastTimestamp(), history);
+    public TopicRecordImpl getLastRecord() {
+        return new TopicRecordImpl(getLastTimestamp(), history);
     }
 }

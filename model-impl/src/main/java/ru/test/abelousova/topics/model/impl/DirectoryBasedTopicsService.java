@@ -15,7 +15,7 @@ public class DirectoryBasedTopicsService implements TopicsService {
     private List<String> topics;
 
     @Autowired
-    public DirectoryBasedTopicsService(@Value("${ru.test.abelousova.topics.base_dir}") String directory) {
+    public DirectoryBasedTopicsService(@Value("${ru.test.abelousova.topics.base_dir:../base_dir}") String directory) {
         this.directory = new File(directory);
         if (!this.directory.isDirectory()) {
             throw new IllegalArgumentException("Illegal base directory");

@@ -18,7 +18,8 @@ import java.util.List;
 import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = DirectoryBasedTopisServiceTest.ContextConfiguration.class, loader=AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = DirectoryBasedTopisServiceTest.ContextConfiguration.class,
+                      loader=AnnotationConfigContextLoader.class)
 public class DirectoryBasedTopisServiceTest {
     private static final String TEST_DIR = "./src/test/resourses/test_dir";
 
@@ -46,6 +47,7 @@ public class DirectoryBasedTopisServiceTest {
 
         List<String> topicsListActual = topicsService.getTopicsList();
 
+        // Compare arrays regardless order
         Assert.assertTrue(topicsListActual.containsAll(topicsListExpected) &&
                 topicsListExpected.containsAll(topicsListActual));
     }
