@@ -25,7 +25,7 @@ public class TopicsRestController {
     @Autowired
     private TopicsService topicsService;
 
-    @RequestMapping(value = "/", method = GET)
+    @RequestMapping(value = "", method = GET)
     List<String> listTopics() {
         return topicsService.getTopicsList();
     }
